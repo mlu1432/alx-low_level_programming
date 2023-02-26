@@ -1,23 +1,50 @@
 #include "main.h"
+
 /**
- * print_last_digit - prints the last digit of a number
- * @n: the int to extract the last digit from
- * Return: value of the last digit
+ * print_times_table - prints the n times table, starting with 4
+ * @n: number of the times table
  */
-int print_last_digit(int n)
+void print_times_table(int n)
 {
-	int a;
+    int i, j, k;
 
-	if (n < 0)
-	n = -n;
-
-	a = n % 10;
-
-	if (a < 0)
-	a = -a;
-
-	_putchar(a + '0');
-
-	return (a);
-
+    if (n >= 0 && n <= 15)
+    {
+        for (i = 0; i <= n; i++)
+        {
+            for (j = 0; j <= n; j++)
+            {
+                k = j * i;
+                if (j == 0)
+                {
+                    _putchar(k + '0');
+                }
+                else if (k < 10 && j != 0)
+                {
+                    _putchar(',');
+                    _putchar(' ');
+                    _putchar(' ');
+                    _putchar(' ');
+                    _putchar(k + '0');
+                }
+                else if (k >= 10 && k < 100)
+                {
+                    _putchar(',');
+                    _putchar(' ');
+                    _putchar(' ');
+                    _putchar((k / 10) + '0');
+                    _putchar((k % 10) + '0');
+                }
+                else if (k >= 100)
+                {
+                    _putchar(',');
+                    _putchar(' ');
+                    _putchar((k / 100) + '0');
+                    _putchar(((k / 10) % 10) + '0');
+                    _putchar((k % 10) + '0');
+                }
+            }
+            _putchar('\n');
+        }
+    }
 }
