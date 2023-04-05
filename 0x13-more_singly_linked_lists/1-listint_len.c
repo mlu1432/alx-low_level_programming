@@ -1,26 +1,20 @@
 #include "lists.h"
 
 /**
- * listint_len - returns the number of elements in a linked lists
- * @h: linked list of type listint_t to traverse
+ * listint_len - returns the number of elements in a linked listint_t list
+ * @h: head pointer of the linked list
  *
- * Return: number of nodes
+ * Return: number of elements in the linked list
  */
 size_t listint_len(const listint_t *h)
 {
-	size_t num = 0;
+	size_t count = 0;
 
-	while (h)
+	while (h != NULL)
 	{
-		num++;
+		count++;
 		h = h->next;
 	}
 
-	return (num);
-}
-	num++;
-		h = h->next;
-	}
-
-	return (num);
+	return (count);
 }
