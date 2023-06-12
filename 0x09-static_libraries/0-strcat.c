@@ -6,24 +6,24 @@
  *
  * Return: String pointer to the result
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src);
 {
-	int i;
+	int dest_len;
 	int k;
 
-	i = 0;
-	while (dest[i] != '\0')
+	dest_len = 0;
+	while (dest[dest_len] != '\0')
 	{
-		i++;
+		dest_len++;
 	}
 	k = 0;
-	while (src[i] != '\0')
+	while (src[dest_len] != '\0')
 	{
-		dest[i] = src[k];
-		i++;
+		dest[dest_len] = src[k];
+		dest_len++;
 		k++;
 	}
 
-	dest[i] = '\0';
+	dest[dest_len] = '\0';
 	return (dest);
 }
