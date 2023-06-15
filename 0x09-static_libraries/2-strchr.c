@@ -3,7 +3,7 @@
  * _strchr - Finds the first instance of a character in a string
  * @s: string to be searched
  * @c: character to be located
- * Return: In case the character is not found, NULL is returned
+ * Return: Always 0 (Success)
  */
 char *_strchr(char *s, char c)
 {
