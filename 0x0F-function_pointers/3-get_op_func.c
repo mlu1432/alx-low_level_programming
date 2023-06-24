@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * get_op_func - Chooses the correct function for the operation
- * 		 asked by the user.
+ * asked by the user.
  * @s: The operator passed as argument.
  *
  * Return: Pointer to the function corresponding
