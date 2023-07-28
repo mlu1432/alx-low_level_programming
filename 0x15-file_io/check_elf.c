@@ -1,4 +1,4 @@
-#include <elf_header.h>
+#include "elf_header.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,9 +10,9 @@
  */
 void check_elf(unsigned char *e_ident)
 {
-	int i;
+	int index;
 
-	for (i = 0; i < 4; i++)
+	for (index = 0; index < 4; index++)
 	{
 		if (e_ident[index] != 127 &&
 		    e_ident[index] != 'E' &&
