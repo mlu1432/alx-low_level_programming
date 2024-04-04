@@ -1,1 +1,33 @@
-ggggggg
+# Compiler and Removal Program
+CC = gcc
+RM = rm -f
+
+# Compiler Flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source and Object Files
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+
+# Executable Name
+NAME = school
+
+.PHONY: all clean fclean oclean re
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+    $(CC) $(OBJ) -o $(NAME) $(CFLAGS)
+
+clean:
+    $(RM) *~ \#*\# $(NAME)
+
+oclean:
+    $(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
+
+%.o: %.c
+    $(CC) -c $< -o $@ $(CFLAGS)
