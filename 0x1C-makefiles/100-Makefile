@@ -1,39 +1,20 @@
-# Variables
-CC := gcc
-SRC := main.c school.c
-OBJ := $(SRC:.c=.o)
-NAME := school
-CFLAGS := -Wall -Werror -Wextra -pedantic
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Default build target
-all: $(NAME)
-
-# Link the program
-$(NAME): $(OBJ)
-    $(CC) $^ -o $@ $(CFLAGS)
-
-# Compile source files to object files
-# This approach implicitly adheres to not having a rule for $(OBJ) directly
-%.o: %.c
-    $(CC) -c $< -o $@ $(CFLAGS)
-
-# Clean temporary Emacs and Vim files, and the executable
-clean:
-    /bin/rm -f *~ \#*\# $(NAME)
-
-# Clean object files
-oclean:
-    /bin/rm -f $(OBJ)
-
-# Full clean: temporary files, executable, and object files
-fclean: clean oclean
-
-# Rebuild the project from scratch
-re: fclean all
-
-# Ensure these rules run, even if files named like them exist
 .PHONY: all clean oclean fclean re
 
-# Dependency checks
-# Ensure Makefile doesn't compile if the header file 'm.h' is missing
-$(OBJ): m.h
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
